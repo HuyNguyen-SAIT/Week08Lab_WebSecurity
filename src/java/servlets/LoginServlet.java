@@ -26,7 +26,15 @@ public class LoginServlet extends HttpServlet {
         // more secure, logout if seeing login page
         HttpSession session = request.getSession();
         session.invalidate();
-        
+        String action = request.getParameter("action");
+        if(action == null)
+        {
+            
+        }
+        else
+        {
+            request.setAttribute("errorMessage", "You have successfully logged out!");
+        }
         getServletContext().getRequestDispatcher("/WEB-INF/login.jsp").forward(request, response);
     }
 
@@ -45,6 +53,8 @@ public class LoginServlet extends HttpServlet {
             response.sendRedirect("users");
         } else {
             request.setAttribute("errorMessage", "Invalid login credentials. Please try again");
+            request.setAttribute("loginUsername", username);
+            
             getServletContext().getRequestDispatcher("/WEB-INF/login.jsp").forward(request, response);
         }
     }

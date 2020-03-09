@@ -13,6 +13,6 @@
     </head>
     <body>
         <h1>Home Page</h1>
-        <a href="login">Logout</a>
+        <a href="login?action=logout">Logout</a>
     </body>
 </html>
