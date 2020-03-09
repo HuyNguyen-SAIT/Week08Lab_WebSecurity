@@ -44,6 +44,7 @@ public class LoginServlet extends HttpServlet {
             session.setAttribute("username", username);
             response.sendRedirect("users");
         } else {
+            request.setAttribute("errorMessage", "Invalid login credentials. Please try again");
             getServletContext().getRequestDispatcher("/WEB-INF/login.jsp").forward(request, response);
         }
     }
