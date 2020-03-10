@@ -16,12 +16,12 @@
     <body>
         <h1>Register New User</h1>
         <form action="register" method="post">
-            username: <input type="text" name="username" id="username">  <span id="username_message"></span><br>
-            password: <input type="password" name="password"><br>
+            username: <input type="text" required name="username" id="username" value="${usernameReg}">  <span id="username_message"></span><br>
+            password: <input type="password" required name="password"><br>
             password (again): <input type="password" name="passwordcheck"><br>
             <input type="submit" value="Register">
         </form>
-        
+        ${error}
        
     </body>
 </html>

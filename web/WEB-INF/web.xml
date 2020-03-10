@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <web-app version="3.1" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd">
+    <!--
+    If you are unauthorized, you cannot redirect to the 2 servlets added into the filter
+    -->
     <filter>
         <filter-name>AuthenticationFilter</filter-name>
         <filter-class>filters.AuthenticationFilter</filter-class>
@@ -12,6 +15,9 @@
         <filter-name>AuthenticationFilter</filter-name>
         <servlet-name>UserServlet</servlet-name>
     </filter-mapping>
+    <!--
+    If you are authorized but not admin, you cannot redirect to the servlet added into the filter
+    -->
     <filter>
         <filter-name>AdminFilter</filter-name>
         <filter-class>filters.AdminFilter</filter-class>
@@ -20,6 +26,7 @@
         <filter-name>AdminFilter</filter-name>
         <servlet-name>UserServlet</servlet-name>
     </filter-mapping>
+    
     <servlet>
         <servlet-name>UserServlet</servlet-name>
         <servlet-class>servlets.UserServlet</servlet-class>
